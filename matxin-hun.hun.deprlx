@@ -1,0 +1,51 @@
+DELIMITERS = "." ;
+
+LIST Det = det;
+LIST Def = def;
+LIST Noun = n;
+LIST Num = pl;
+LIST Nom = nom;
+LIST Gen = px3sg;
+LIST Sup = sup;
+LIST Pre = pr;
+LIST Adj = adj;
+LIST Ine = ine;
+LIST Vrb = v;
+LIST Tns = past;
+LIST Per = p1 p3;
+LIST Pot = pot;
+LIST Snt = sent;
+LIST Adv = adv;
+LIST Acc = acc;
+
+LIST @root = @root ;     # The root of the sentence, often a finite verb
+LIST @nsubj = @nsubj ;   # The nominal subject of the sentence
+LIST @advmod = @advmod ; # An adverbial modifier
+LIST @case = @case ;     # The relation of an adposition to its head
+LIST @acl = @acl ;       # A clause which modifies a nominal
+LIST @nmod = @nmod ;     # Nominal modifier 
+LIST @dobj = @dobj ;     # The direct object of the sentence
+LIST @punct = @punct ;   # Any punctuation
+LIST @dep = @dep ;       # Any remaining dependency
+
+SECTION
+MAP @root TARGET Vrb;
+MAP @nmod TARGET Adj;
+MAP @nmod TARGET Det;
+MAP @dobj TARGET Acc;
+MAP @punct TARGET Snt;
+MAP @case TARGET Nom;
+MAP @case TARGET Sup;
+MAP @advmod TARGET Ine;
+MAP @punct TARGET Snt ;
+MAP (@dep) TARGET (*) ;
+
+SECTION
+SETPARENT @root TO (@0 (*)) ;
+SETPARENT (*) (NEGATE p (*)) TO (0* @root) ;
+SETPARENT @dobj TO (-1* Vrb) ;
+SETPARENT @nmod TO (1 Noun);
+SETPARENT @case TO (1 Pre);
+SETPARENT @case TO (1* Gen);
+
+

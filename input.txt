@@ -1,0 +1,2 @@
+^A/a<det><def>$ ^házak/ház<n><pl><nom>$ ^nyitott/nyitott<adj>$ ^ablakain/ablak<n><px3sg><pl><sup>$ ^át/át<pr>$ ^sűrű/sűrű<adj>$ ^csoportokban/csoport<n><pl><ine>$ 
+^láthattuk/lát<v><def><pot><past><p1><pl>$ ^a/a<det><def>$ ^holtakat/holt<n><pl><acc>$ ^./.<sent>$
